@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.diningplate"
-version = "0.0.1-SNAPSHOT"
+version = property("version") as String
 
 java {
 	toolchain {
