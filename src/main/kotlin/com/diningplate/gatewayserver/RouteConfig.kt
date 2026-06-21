@@ -17,12 +17,12 @@ class RouteConfig {
 	@Bean
 	fun diningplateRoutes(builder: RouteLocatorBuilder): RouteLocator =
 		builder.routes()
-			.route("order-service") { r ->
-				r.path("/diningplate/order-service/**")
-					.filters { f ->
-						f.rewritePath("/diningplate/(?<segment>.*)", "/\${segment}")
-					}
-					.uri("lb://ORDER-SERVICE")
-			}
-			.build()
+			.route { r ->
+                r.path("/diningplate/order-service/**")
+                    .filters { f ->
+                        f.rewritePath("/diningplate/order-service/(?<segment>.*)", "/\${segment}")
+                    }
+                    .uri("lb://ORDER-SERVICE")
+            }
+            .build()
 }
